@@ -80,12 +80,12 @@ public class CipherUtils {
    */
   public static String vigenereEncrypt(String str, String key) {
     char[] keyArr = CipherUtils.keyArray(str, key);
-    //create blank array of appropriate length to store encoded message
+    // create blank array of appropriate length to store encoded message
     char[] encodedArr = new char[str.length()];
-    int holder; //to hold the current character being encoded, as an int
-    char[] msg = str.toCharArray(); //convert str to char[] for indexing
+    int holder; // to hold the current character being encoded, as an int
+    char[] msg = str.toCharArray(); // convert str to char[] for indexing
     for (int i = 0; i < str.length(); i++) {
-      holder = CipherUtils.wrapLetter(letter2int(msg[i]) + keyArr[i]);
+      holder = CipherUtils.wrapLetter(letter2int(msg[i]) + letter2int(keyArr[i]));
       encodedArr[i] = int2letter(holder);
     } // for
     String encodedStr = new String(encodedArr);
@@ -106,7 +106,7 @@ public class CipherUtils {
     int holder;
     char[] msg = str.toCharArray();
     for (int i = 0; i < str.length(); i++) {
-      holder = CipherUtils.wrapLetter(letter2int(msg[i]) - keyArr[i]);
+      holder = CipherUtils.wrapLetter(letter2int(msg[i]) - letter2int(keyArr[i]));
       decodedArr[i] = int2letter(holder);
     } // for
     String decodedStr = new String(decodedArr);
