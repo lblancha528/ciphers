@@ -3,11 +3,13 @@ package edu.grinnell.csc207.main;
 import java.io.PrintWriter;
 import edu.grinnell.csc207.util.CipherUtils;
 
-/*
+/**
  * Encrypt a message, takes 4 command line arguments.
+ * @author Lily Blanchard
+ * For CSC207-01 Rebelsky
  */
 public class Cipher {
-  /*
+  /**
    * Main.
    */
   public static void main(String[] args) {

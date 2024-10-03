@@ -3,14 +3,16 @@ package edu.grinnell.csc207.main;
 import java.io.PrintWriter;
 import edu.grinnell.csc207.util.CipherUtils;
 
-/*
+/**
  * Run caesar cipher with two command line arguments.
+ * @author Lily Blanchard
+ * For CSC207-01 Rebelsky
  */
 public class AllCaesar {
-  /*
+  /**
    * Main class.
    */
-  public static void main(String[] args){
+  public static void main(String[] args) {
     PrintWriter pen = new PrintWriter(System.out, true);
     PrintWriter err = new PrintWriter(System.err, true);
 
