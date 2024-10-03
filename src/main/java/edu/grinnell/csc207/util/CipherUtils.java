@@ -80,10 +80,11 @@ public class CipherUtils {
    */
   public static String vigenereEncrypt(String str, String key) {
     char[] keyArr = CipherUtils.keyArray(str, key);
-    char[] encodedArr = new char[str.length()]; //create blank array of appropriate length to store encoded message
+    //create blank array of appropriate length to store encoded message
+    char[] encodedArr = new char[str.length()];
     int holder; //to hold the current character being encoded, as an int
     char[] msg = str.toCharArray(); //convert str to char[] for indexing
-    for (int i = 0; i < str.length(); i++){
+    for (int i = 0; i < str.length(); i++) {
       holder = CipherUtils.wrapLetter(letter2int(msg[i]) + keyArr[i]);
       encodedArr[i] = int2letter(holder);
     } // for
@@ -144,8 +145,7 @@ public class CipherUtils {
     for (int i = 0; i < str.length(); i++) {
       if (i > (key.length() - 1)) {
         keyArr[i] = key.charAt(i % key.length());
-      } // if
-      else {
+      } else {
         keyArr[i] = key.charAt(i);
       } // else
     } // for
@@ -156,6 +156,7 @@ public class CipherUtils {
    * If a letter is 'lower' than a or 'higher' than z, modify until it is a valid letter value.
    * @param ltr
    *   an int representing a letter
+   * @return an acceptable int value to correspond to a letter
    */
   public static int wrapLetter(int ltr) {
     while (ltr < 0 || ltr > 25) {
