@@ -793,7 +793,7 @@ public class TestMP01 {
    */
   @Test
   public void cipherLongCaesarKey() {
-    cipherTest("E", new String[] { "-caesar", "-encode", "h", "bo" }, null);
+    cipherTest("E", new String[] { "-caesar", "-encode", "ha", "bo" }, null);
   } // cipherLongCaesarKey()
 
   /**

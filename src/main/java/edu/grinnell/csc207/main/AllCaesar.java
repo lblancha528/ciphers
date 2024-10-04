@@ -21,7 +21,7 @@ public class AllCaesar {
 
     if (args.length != 2) {
       err.printf("Error: Incorrect number of parameters.\n");
-      System.exit(1);
+      return;
     } // if
 
     String mode = args[0];
@@ -29,7 +29,7 @@ public class AllCaesar {
 
     if (!(CipherUtils.isValidString(str))) {
       err.printf("Error: String contains characters other than lowercase letters.\n");
-      System.exit(1);
+      return;
     } // if
 
     if (mode == "encode") {
@@ -43,7 +43,7 @@ public class AllCaesar {
     } else {
       err.printf("Error: Invalid option: \""
           + mode + "\". Valid options are \"encode\" or \"decode\".\n");
-      System.exit(1);
+      return;
     } // else
 
     pen.close();

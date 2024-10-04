@@ -122,6 +122,9 @@ public class CipherUtils {
   public static boolean isValidString(String str) {
     int lower = letter2int('a');
     int upper = letter2int('z');
+    if (str.length() < 1) {
+      return false;
+    } // if
     char[] strArr = str.toCharArray();
     for (int i = 0; i < str.length(); i++) {
       int letterNum = letter2int(strArr[i]);

@@ -20,8 +20,8 @@ public class Cipher {
     PrintWriter err = new PrintWriter(System.err, true);
 
     if (args.length != 4) {
-      err.println("Error: Incorrect number of paramenters. \n");
-      System.exit(1);
+      err.println("Error: Incorrect number of parameters. \n");
+      return;
     } // if
 
     String cipherMode = null; //caesar or vigenes
@@ -37,17 +37,17 @@ public class Cipher {
         // if codeMode found, set
         if (args[i].equals("-encode") || args[i].equals("-decode")) {
           codeMode = args[i];
-        } else if (args[i].equals("-caesar") || args[i].equals("-vigenes")) {
+        } else if (args[i].equals("-caesar") || args[i].equals("-vigenere")) {
           // if cipherMode found, set
           cipherMode = args[i];
         } else {
           err.println("Error: Invalid mode parameter provided.\n");
-          System.exit(1);
+          return;
         } // else
       } else {
         if (!CipherUtils.isValidString(args[i])) {
           err.println("Error: Invalid string parameter provided.\n");
-          System.exit(1);
+          return;
         } else {
           if (msgFound) {
             if (args[i].length() == 1) {
@@ -63,6 +63,11 @@ public class Cipher {
         } // else
       } // else
     } // for
+
+    if ((cipherMode == "-caesar" && keyC == '\0') || (cipherMode == "-vigenere" && keyS == null)) {
+      err.println("Error: Caesar ciphers require a one-character key");
+      return;
+    } // if
 
     if (cipherMode == "-caesar") {
       if (codeMode == "-encode") {
